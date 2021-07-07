@@ -1,9 +1,23 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+beforeAll(() => jest.spyOn(window, "fetch"));
+
+test("fetch data from API on page load", async () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  (window.fetch as jest.Mock).mockResolvedValueOnce({
+    ok: true,
+    json: async () => ({ success: true }),
+  });
+
+  expect(window.fetch).toHaveBeenCalledWith(
+    process.env.REACT_APP_API_URL,
+    expect.objectContaining({
+      method: "GET",
+    })
+  );
+
+  expect(window.fetch).toHaveBeenCalledTimes(1);
 });
