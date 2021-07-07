@@ -1,8 +1,13 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import App from "./App";
 
 beforeAll(() => jest.spyOn(window, "fetch"));
+
+test("<App/> snapshot", () => {
+  const wrapper = render(<App />);
+  expect(wrapper).toMatchSnapshot();
+});
 
 test("fetch data from API on page load", async () => {
   render(<App />);

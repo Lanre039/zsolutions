@@ -16,7 +16,7 @@ function Card({ item }: { item: IItems }) {
 
   return (
     <Box
-      borderRadius="lg"
+      // borderRadius="lg"
       overflow="hidden"
       boxShadow="xl"
       borderTopRightRadius="3xl"
