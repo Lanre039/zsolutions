@@ -42,7 +42,7 @@ function Card({ item }: { item: IItems }) {
           <Box as="p" color="gray.600" fontSize="sm">
             {item.strMeal}
           </Box>
-          <Box as="h2" mt="4" color="gray.600" fontSize="medium" noOfLines={3}>
+          <Box as="h2" mt="4" color="gray.600" fontSize="15px" noOfLines={3}>
             {item.description}
           </Box>
         </Box>
