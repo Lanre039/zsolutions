@@ -16,7 +16,6 @@ function Card({ item }: { item: IItems }) {
 
   return (
     <Box
-      // borderRadius="lg"
       overflow="hidden"
       boxShadow="xl"
       borderTopRightRadius="3xl"
@@ -30,12 +29,12 @@ function Card({ item }: { item: IItems }) {
           h="270px"
           width="full"
         />
-        <Box p="6">
+        <Box py="6" px="4">
           <HStack justifyContent="space-between">
-            <Box fontWeight="bold" as="h2" fontSize="large">
+            <Box fontWeight="bold" as="h2" letterSpacing="wide" fontSize="xl">
               {item.title}
             </Box>
-            <Box fontWeight="bold" as="h2" fontSize="large">
+            <Box fontWeight="bold" as="h2" letterSpacing="wide" fontSize="xl">
               {/* format price e.g from $12 to 12$ */}
               {item.price.split("$")[1].concat(item.price[0])}
             </Box>
@@ -43,7 +42,7 @@ function Card({ item }: { item: IItems }) {
           <Box as="p" color="gray.600" fontSize="sm">
             {item.strMeal}
           </Box>
-          <Box as="h2" mt="4" color="gray.600" noOfLines={3}>
+          <Box as="h2" mt="4" color="gray.600" fontSize="medium" noOfLines={3}>
             {item.description}
           </Box>
         </Box>
